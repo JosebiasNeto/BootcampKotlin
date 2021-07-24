@@ -17,6 +17,7 @@
             android:id="@+id/iv_photograph"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:contentDescription="@string/iv_photograph_content_description"
             app:layout_constraintBottom_toBottomOf="@id/tv_phone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/tv_name"

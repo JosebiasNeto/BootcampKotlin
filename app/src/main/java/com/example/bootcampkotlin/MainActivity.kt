@@ -2,6 +2,11 @@ package com.example.bootcampkotlin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Message
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -20,12 +25,12 @@ class MainActivity : AppCompatActivity() {
         updateList()
     }
 
-    private fun bindViews(){
+    private fun bindViews() {
         rvList.adapter = adapter
         rvList.layoutManager = LinearLayoutManager(this)
     }
 
-    private fun updateList(){
+    private fun updateList() {
         adapter.updateList(
             arrayListOf(
                 Contact(
@@ -33,12 +38,36 @@ class MainActivity : AppCompatActivity() {
                     "081",
                     "img.png"
                 ),
-                        Contact(
-                        "Neto",
-                "081",
-                "img.png"
-            )
+                Contact(
+                    "Neto",
+                    "081",
+                    "img.png"
+                )
             )
         )
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    private fun showToast(message: String){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId){
+            R.id.item_menu_1 -> {
+                showToast("Exibindo item de menu 1")
+                return true
+            }
+            R.id.item_menu_2 -> {
+                showToast("Exibindo item de menu 2")
+                return true
+            }
+                else -> super.onOptionsItemSelected(item)
+        }
     }
 }
