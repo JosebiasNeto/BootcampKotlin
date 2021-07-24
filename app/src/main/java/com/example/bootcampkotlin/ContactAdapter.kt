@@ -28,7 +28,7 @@ class ContactAdapter : RecyclerView.Adapter<ContactAdapter.ContactAdapterViewHol
     class ContactAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         private val tvName: TextView = itemView.findViewById(R.id.tv_name)
         private val tvPhone: TextView = itemView.findViewById(R.id.tv_phone)
-        private val tvPhotograph: TextView = itemView.findViewById(R.id.iv_photograph)
+//        private val tvPhotograph: TextView = itemView.findViewById(R.id.iv_photograph)
 
         fun bind(contact: Contact){
             tvName.text = contact.name
