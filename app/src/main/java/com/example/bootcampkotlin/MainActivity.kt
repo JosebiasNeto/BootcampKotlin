@@ -14,6 +14,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.bootcampkotlin.ContactDetail.Companion.EXTRA_CONTACT
 
 class MainActivity : AppCompatActivity(), ClickItemContactListener {
 
@@ -50,13 +51,13 @@ class MainActivity : AppCompatActivity(), ClickItemContactListener {
         adapter.updateList(
             arrayListOf(
                 Contact(
-                    "Neto",
-                    "081",
+                    "Josebias Neto",
+                    "81 997698793",
                     "img.png"
                 ),
                 Contact(
-                    "Neto",
-                    "081",
+                    "Isabele Lira",
+                    "81 995930981",
                     "img.png"
                 )
             )
@@ -89,6 +90,7 @@ class MainActivity : AppCompatActivity(), ClickItemContactListener {
 
     override fun clickItemContact(contact: Contact) {
         val intent = Intent(this,ContactDetail::class.java)
+        intent.putExtra(EXTRA_CONTACT,contact)
         startActivity(intent)
     }
 
