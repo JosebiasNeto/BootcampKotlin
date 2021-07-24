@@ -12,8 +12,15 @@ class ContactDetail : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contact_detail)
 
+        initToolbar()
         getExtras()
         bindViews()
+    }
+
+    private fun initToolbar(){
+        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     private fun getExtras(){
@@ -27,5 +34,10 @@ class ContactDetail : AppCompatActivity() {
 
     companion object {
         const val EXTRA_CONTACT: String = "EXTRA CONTACT"
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 }
